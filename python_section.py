@@ -76,11 +76,9 @@ class Vacation:
         self.dist = dist
     
     def sum(self):
-        # sum the cost of the vacation package here
         if not self.myclass.valid_this(self.dist) or not self.passanger.valid_number() or not self.total_time.is_valid_total_time():
             return -1
         
-        # sum the total cost
         number_total = self.cost_bas
         number_total += self.myclass.get_extra_cost(self.dist)
         number_total += self.total_time.get_fee()
@@ -91,23 +89,18 @@ class Vacation:
         
         return max(int(number_total), 0)
 
-#this is main function
 def main():
-    #this are the inputs
     dist = "Paris"
     num = 2
     dur = 31
 
-    #this are the outputs
     calculator = Vacation(dist, num, dur)
     cost = calculator.sum()
 
-    #this will do some printing
     if cost == -1:
         print("Invalid input.")
     else:
         print(f"The total cost of the vacation package is: ${cost}")
 
-#main event function
 if __name__ == "__main__":
     main()
