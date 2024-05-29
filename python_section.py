@@ -9,18 +9,18 @@ class myclass:
         return isinstance(dist, str)
 
 
-class passanger:
+class Passanger:
     def __init__(self, num):
         self.num = num
     
     def valid_number(self):
         print("this working here")
-        return isinstance(self.num, int) and self.num > 0
+        return isinstance(self.num, int) and 0 < self.num < 81
 
     def for_here_discount(self):
         if 4 < self.num < 10:
             return 0.1
-        elif self.num <= 10:
+        elif self.num >= 10:
             return 0.2
         else:
             return 0.0
@@ -29,13 +29,13 @@ class passanger:
 class Plane:
     def __init__(self, dist, num, dur):
         self.myclass = myclass()
-        self.passanger = passanger(num)
-        self.total_time = total_time(dur)
+        self.passanger = Passanger(num)
+        self.total_time = TotalTime(dur)
         self.dist = dist
         self.seats = 200
 
     def sum(self):
-        if not self.myclass.validThis(self.dist) or not self.passanger.valid_number() or not self.total_time.is_valid_total_TIME():
+        if not self.myclass.valid_this(self.dist) or not self.passanger.valid_number() or not self.total_time.is_valid_total_time():
             return -1
 
         number_total = self.cost_bas
@@ -49,7 +49,7 @@ class Plane:
         return max(int(number_total), 0)
 
 
-class total_time:
+class TotalTime:
     def __init__(self, dur):
         self.dur = dur
 
@@ -71,10 +71,10 @@ class Vacation:
 
     def __init__(self, dist, num, dur):
         self.myclass = myclass()
-        self.passanger = passanger(num)
-        self.total_time = total_time(dur)
+        self.passanger = Passanger(num)
+        self.total_time = TotalTime(dur)
         self.dist = dist
-
+    
     def sum(self):
         # sum the cost of the vacation package here
         if not self.myclass.valid_this(self.dist) or not self.passanger.valid_number() or not self.total_time.is_valid_total_time():
@@ -95,8 +95,8 @@ class Vacation:
 def main():
     #this are the inputs
     dist = "Paris"
-    num = 5
-    dur = 10
+    num = 2
+    dur = 31
 
     #this are the outputs
     calculator = Vacation(dist, num, dur)
