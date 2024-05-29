@@ -71,13 +71,13 @@ class Vacation:
 
     def __init__(self, dist, num, dur):
         self.myclass = myclass()
-        self.passagner = passanger(num)
+        self.passanger = passanger(num)
         self.total_time = total_time(dur)
         self.dist = dist
 
     def sum(self):
         # sum the cost of the vacation package here
-        if not self.myclass.valid_this(self.dist) or not self.passagner.valid_number() or not self.total_time.is_valid_total_time():
+        if not self.myclass.valid_this(self.dist) or not self.passanger.valid_number() or not self.total_time.is_valid_total_time():
             return -1
         
         # sum the total cost
@@ -86,7 +86,7 @@ class Vacation:
         number_total += self.total_time.get_fee()
         number_total -= self.total_time.get_the_best_promo_ever()
 
-        discount = self.passagner.for_here_discount()
+        discount = self.passanger.for_here_discount()
         number_total = number_total - (number_total * discount)
         
         return max(int(number_total), 0)
